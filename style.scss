@@ -1,7 +1,13 @@
-
 @use "mixins";
-$fontTitle:Avenir;
 
+
+@font-face {
+    font-family:Grotesk ;
+    src: url(font/DTGetaiGroteskDisplay-Black.otf);
+}
+
+$font-title:Grotesk;
+$font-para:avenir;
 
 *{
     margin: 0;
@@ -18,6 +24,7 @@ nav{
     background-color: white;
     width: 100%;
     padding: 20px;
+    z-index: 1;
   
   
     ul{
@@ -28,38 +35,29 @@ nav{
 
 .header-backgroud{
 
-background-color: red;
-background-image: url(img/LPC-4.jpeg);
-background-repeat: no-repeat;
-background-size: cover;
-height: 650px;
-    .flou{
-        @include mixins.displayFlex(column,center,center,0px);
-        height: 650px;
-        width: 100%;
-        background: rgba( 255, 255, 255, 0.25 );
-        box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-        backdrop-filter: blur( 4px );
-        
-        
-        H1{
-            @include mixins.font(avenir,45px,white);
+    background-color: red;
+    background-image: url(img/LPC-4.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 650px;
+        .flou{
+            @include mixins.displayFlex(column,center,center,0px);
+            z-index: 0;
+            height: 650px;
+            width: 100%;
+            background: rgba( 255, 255, 255, 0.25 );
+            box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+            backdrop-filter: blur( 4px );
+                
+            H1{
+                @include mixins.font($font-title,45px,white);
+            }
+            p{
+                text-align: center;
+                @include mixins.font($font-para,20px,white);
+                width:1100px;
+            }
         }
-        p{
-            text-align: center;
-            @include mixins.font(avenir,20px,white);
-            width:1100px;
-        }
-
-
-    }
-
-
-
-   
-
-
-
 }
 
 .gallerie{
@@ -96,5 +94,43 @@ height: 650px;
             grid-row: 2;
             grid-column: 2;
         }
+    }
+}
+
+#histoire-section{
+
+    .chronologie{
+       display: grid;
+       grid-template-columns: 0.2fr 0.2fr;
+       grid-template-rows: 0.5fr 0.5fr 0.5fr;
+       
+       h2{
+        grid-column:1 ;
+        grid-row: 1;
+        @include mixins.font($font-title,25px);
+        align-self: end;
+        
+       }
+       span{
+        grid-column:1 ;
+        grid-row: 2;
+        @include mixins.font($font-para,20px);
+        align-self: end;
+       }
+       p{
+        grid-column:1 ;
+        grid-row: 3;
+        @include mixins.font($font-para,15px);
+        align-self: start;
+       }
+       img{
+        grid-column:2 ;
+        grid-row: 1/3;
+        width: 635px;
+        height: auto;
+       
+        align-self: stretch;
+
+       }
     }
 }
