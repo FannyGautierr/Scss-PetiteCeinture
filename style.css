@@ -1,37 +1,97 @@
 * {
   margin: 0;
   padding: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 nav {
-  display: -webkit-box;
-  display: -ms-flexbox;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  height: 10vh;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  font-family: avenir;
-  margin: 20px;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0px;
+  font-family: Avenir;
+  font-size: 20px;
+  color: black;
+  background-color: white;
+  width: 100%;
+  padding: 20px;
 }
-
 nav ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   gap: 20px;
   list-style: none;
 }
-/*# sourceMappingURL=style.css.map */
+
+.header-backgroud {
+  background-color: red;
+  background-image: url(img/LPC-4.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 650px;
+}
+.header-backgroud .flou {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0px;
+  height: 650px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  -webkit-backdrop-filter: blur(4px);
+          backdrop-filter: blur(4px);
+}
+.header-backgroud .flou H1 {
+  font-family: avenir;
+  font-size: 45px;
+  color: white;
+}
+.header-backgroud .flou p {
+  text-align: center;
+  font-family: avenir;
+  font-size: 20px;
+  color: white;
+  width: 1100px;
+}
+
+.gallerie {
+  display: none;
+  grid-template-columns: repeat(2, 0.5fr);
+  grid-template-rows: 0.5fr 0.5fr;
+  margin: 0 auto;
+  padding: 50px;
+}
+.gallerie .image {
+  width: 635px;
+  height: auto;
+  align-self: stretch;
+}
+.gallerie .image-1 {
+  justify-self: end;
+  grid-row: 1;
+  grid-column: 1;
+}
+.gallerie .image-2 {
+  justify-self: start;
+  grid-row: 1;
+  grid-column: 2;
+}
+.gallerie .image-3 {
+  justify-self: end;
+  grid-row: 2;
+  grid-column: 1;
+}
+.gallerie .image-4 {
+  justify-self: start;
+  grid-row: 2;
+  grid-column: 2;
+}/*# sourceMappingURL=style.css.map */

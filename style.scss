@@ -1,3 +1,8 @@
+
+@use "mixins";
+$fontTitle:Avenir;
+
+
 *{
     margin: 0;
     padding: 0;
@@ -5,16 +10,91 @@
 }
 
 nav{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    font-family: avenir;
-    margin: 20px;
-    align-items: center;
+    position:sticky;
+    top: 0;
+    height: 10vh;
+    @include mixins.displayFlex(row,space-between,center,0px);
+    @include mixins.font(Avenir,20px);
+    background-color: white;
+    width: 100%;
+    padding: 20px;
+  
+  
     ul{
-        display: flex;
-        flex-direction: row;
-        gap: 20px;
+        @include mixins.displayFlex(row,space-between,center,20px);
         list-style: none;
+    }
+}
+
+.header-backgroud{
+
+background-color: red;
+background-image: url(img/LPC-4.jpeg);
+background-repeat: no-repeat;
+background-size: cover;
+height: 650px;
+    .flou{
+        @include mixins.displayFlex(column,center,center,0px);
+        height: 650px;
+        width: 100%;
+        background: rgba( 255, 255, 255, 0.25 );
+        box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+        backdrop-filter: blur( 4px );
+        
+        
+        H1{
+            @include mixins.font(avenir,45px,white);
+        }
+        p{
+            text-align: center;
+            @include mixins.font(avenir,20px,white);
+            width:1100px;
+        }
+
+
+    }
+
+
+
+   
+
+
+
+}
+
+.gallerie{
+    display: none;
+    grid-template-columns:repeat(2,0.5fr);
+    grid-template-rows: 0.5fr 0.5fr;
+    margin: 0 auto;
+    padding: 50px;
+  
+
+    .image{
+       width: 635px;
+       height: auto;
+       
+       align-self: stretch;
+        &-1{
+            justify-self:end;
+            grid-row:1 ;
+            grid-column:1 ;
+            
+        }
+        &-2{
+            justify-self:start;
+            grid-row:1 ;
+            grid-column:2 ;
+        }
+        &-3{
+            justify-self:end;
+            grid-row:2 ;
+            grid-column:1 ;
+        }
+        &-4{
+            justify-self:start;
+            grid-row: 2;
+            grid-column: 2;
+        }
     }
 }
