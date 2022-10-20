@@ -12,3 +12,9 @@
     font-size: $fontSize;
     color: $fontcolor;
 }
+
+@mixin breakpoint($width){
+    @media screen and (max-width:$width) {
+       @content;
+    }
+}
