@@ -31,6 +31,10 @@ nav{
     ul{
         @include mixins.displayFlex(row,space-between,center,20px);
         list-style: none;
+        a{
+            text-decoration: none;
+            color: black;
+        }
 
        
     }
@@ -68,38 +72,70 @@ nav{
 }
 
 .gallerie{
+    position: relative;
     display: grid;
     grid-template-columns:repeat(2,0.5fr);
     grid-template-rows: 0.5fr 0.5fr;
     margin: 0 auto;
     padding: 50px;
-  
+    @include mixins.breakpoint(900px){
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1Fr 1Fr 1fr;
+    }
 
     .image{
        width: 635px;
        height: auto;
+       @include mixins.breakpoint(900px){
+        width: 445px;
+    
+        
+    }
        
        align-self: stretch;
         &-1{
             justify-self:end;
             grid-row:1 ;
             grid-column:1 ;
+            @include mixins.breakpoint(900px){
+                justify-self: center;
+                
+            }
+          
+            
             
         }
         &-2{
             justify-self:start;
             grid-row:1 ;
             grid-column:2 ;
+            @include mixins.breakpoint(900px){
+                grid-row: 2;
+                grid-column: 1;
+                justify-self: center;
+                
+            }
         }
         &-3{
             justify-self:end;
             grid-row:2 ;
             grid-column:1 ;
+            @include mixins.breakpoint(900px){
+                grid-row: 3;
+                grid-column: 1;
+                justify-self: center;
+            }
         }
         &-4{
             justify-self:start;
             grid-row: 2;
             grid-column: 2;
+            @include mixins.breakpoint(900px){
+                grid-row:4 ;
+                grid-column: 1;
+                justify-self: center;
+                
+            }
         }
     }
 }
@@ -120,10 +156,10 @@ nav{
        gap : 0px 30px;
        @include mixins.breakpoint(800px){
         grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr 1fr 0.5fr;
+        grid-template-rows: 0.5fr 0.5fr 0.5fr 0.5fr;
         width: 50%;
         height: fit-content;
-        padding: 10px;
+        padding: 20px;
        }
        h2{
         grid-column:1 ;
@@ -133,6 +169,7 @@ nav{
         @include mixins.breakpoint(800px){
             grid-column:1 ;
             grid-row: 1;
+            justify-self: center;
            }
         
        }
@@ -143,6 +180,8 @@ nav{
         @include mixins.breakpoint(800px){
             grid-column:1 ;
             grid-row: 2;
+            justify-self: center;
+            align-self: center;
         }
        
        }
@@ -154,6 +193,8 @@ nav{
         @include mixins.breakpoint(800px){
             grid-column:1 ;
             grid-row: 3;
+            justify-self: center;
+            margin: 5px;
         }
         
        }
@@ -168,7 +209,7 @@ nav{
             grid-column:1 ;
             grid-row: 4;
             width: 250px;
-            
+            justify-self: center;
             max-height: 0.5fr;
         }
        }
@@ -212,7 +253,7 @@ nav{
 
 footer{
     height: 15vh;
-    background-color: aliceblue;
+    background-color: whitesmoke;
     @include mixins.font($font-para,15px);
     padding: 20px;
     ul{
@@ -220,6 +261,10 @@ footer{
         a{
             text-decoration: none;
             color: black;
+        }
+        a:hover{
+            color: blue;
+            text-decoration: underline;
         }
         
     }

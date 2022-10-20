@@ -34,6 +34,10 @@ nav ul {
   gap: 20px;
   list-style: none;
 }
+nav ul a {
+  text-decoration: none;
+  color: black;
+}
 
 .header-backgroud {
   background-color: red;
@@ -75,36 +79,74 @@ nav ul {
 }
 
 .gallerie {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(2, 0.5fr);
   grid-template-rows: 0.5fr 0.5fr;
   margin: 0 auto;
   padding: 50px;
 }
+@media screen and (max-width: 900px) {
+  .gallerie {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1Fr 1Fr 1fr;
+  }
+}
 .gallerie .image {
   width: 635px;
   height: auto;
   align-self: stretch;
+}
+@media screen and (max-width: 900px) {
+  .gallerie .image {
+    width: 445px;
+  }
 }
 .gallerie .image-1 {
   justify-self: end;
   grid-row: 1;
   grid-column: 1;
 }
+@media screen and (max-width: 900px) {
+  .gallerie .image-1 {
+    justify-self: center;
+  }
+}
 .gallerie .image-2 {
   justify-self: start;
   grid-row: 1;
   grid-column: 2;
+}
+@media screen and (max-width: 900px) {
+  .gallerie .image-2 {
+    grid-row: 2;
+    grid-column: 1;
+    justify-self: center;
+  }
 }
 .gallerie .image-3 {
   justify-self: end;
   grid-row: 2;
   grid-column: 1;
 }
+@media screen and (max-width: 900px) {
+  .gallerie .image-3 {
+    grid-row: 3;
+    grid-column: 1;
+    justify-self: center;
+  }
+}
 .gallerie .image-4 {
   justify-self: start;
   grid-row: 2;
   grid-column: 2;
+}
+@media screen and (max-width: 900px) {
+  .gallerie .image-4 {
+    grid-row: 4;
+    grid-column: 1;
+    justify-self: center;
+  }
 }
 
 #histoire-section {
@@ -128,12 +170,12 @@ nav ul {
 @media screen and (max-width: 800px) {
   #histoire-section .chronologie {
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 1fr 0.5fr;
+    grid-template-rows: 0.5fr 0.5fr 0.5fr 0.5fr;
     width: 50%;
     height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
-    padding: 10px;
+    padding: 20px;
   }
 }
 #histoire-section .chronologie h2 {
@@ -148,6 +190,7 @@ nav ul {
   #histoire-section .chronologie h2 {
     grid-column: 1;
     grid-row: 1;
+    justify-self: center;
   }
 }
 #histoire-section .chronologie span {
@@ -161,6 +204,8 @@ nav ul {
   #histoire-section .chronologie span {
     grid-column: 1;
     grid-row: 2;
+    justify-self: center;
+    align-self: center;
   }
 }
 #histoire-section .chronologie p {
@@ -175,6 +220,8 @@ nav ul {
   #histoire-section .chronologie p {
     grid-column: 1;
     grid-row: 3;
+    justify-self: center;
+    margin: 5px;
   }
 }
 #histoire-section .chronologie img {
@@ -191,6 +238,7 @@ nav ul {
     grid-column: 1;
     grid-row: 4;
     width: 250px;
+    justify-self: center;
     max-height: 0.5fr;
   }
 }
@@ -245,7 +293,7 @@ nav ul {
 
 footer {
   height: 15vh;
-  background-color: aliceblue;
+  background-color: whitesmoke;
   font-family: avenir;
   font-size: 15px;
   color: black;
@@ -257,4 +305,8 @@ footer ul {
 footer ul a {
   text-decoration: none;
   color: black;
+}
+footer ul a:hover {
+  color: blue;
+  text-decoration: underline;
 }/*# sourceMappingURL=style.css.map */
