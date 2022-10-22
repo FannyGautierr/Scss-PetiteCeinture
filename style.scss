@@ -62,7 +62,7 @@ $font-para:avenir;
     // CLASSE AJOUTER EN JS
     .transition-menu{
         @include mixins.displayFlex(column,flex-start,center,40px);
-        height: 30vh;
+        height: 40vh;
         transition: ease-in 0.5s;
     }
     .menu-responsive{
@@ -197,7 +197,7 @@ nav{
         justify-self: center;
     
         
-    }
+        }
        
        align-self: stretch;
         &-1{
@@ -353,7 +353,11 @@ footer{
     height: 15vh;
     background-color: whitesmoke;
     @include mixins.font($font-para,15px);
+    @include mixins.displayFlex(row,space-between,center,0px);
     padding: 20px;
+    @include mixins.breakpoint(900px){
+        @include mixins.font($font-para,10px);
+    }
     ul{
         list-style: none;
         a{
@@ -365,6 +369,10 @@ footer{
             text-decoration: underline;
         }
         
+    }
+    img{
+        width: 95px;
+        margin: 20px;
     }
 
 }

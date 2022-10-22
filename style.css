@@ -62,7 +62,7 @@
   justify-content: flex-start;
   align-items: center;
   gap: 40px;
-  height: 30vh;
+  height: 40vh;
   transition: ease-in 0.5s;
 }
 
@@ -406,7 +406,19 @@ footer {
   font-family: avenir;
   font-size: 15px;
   color: black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0px;
   padding: 20px;
+}
+@media screen and (max-width: 900px) {
+  footer {
+    font-family: avenir;
+    font-size: 10px;
+    color: black;
+  }
 }
 footer ul {
   list-style: none;
@@ -418,4 +430,8 @@ footer ul a {
 footer ul a:hover {
   color: blue;
   text-decoration: underline;
+}
+footer img {
+  width: 95px;
+  margin: 20px;
 }/*# sourceMappingURL=style.css.map */
