@@ -13,6 +13,91 @@ $font-para:avenir;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    
+}
+
+/*ANIMATION*/
+@keyframes burgerMenu {
+    0%{
+        transform: translateY(100px);
+    }100%{
+        transform: translateY(-100px);
+    }
+}
+
+@keyframes crossburger {
+    100%{
+        
+        transform:   rotateZ(45deg);
+        
+        
+       
+    }
+  
+    
+}
+
+@keyframes crossburgertwo {
+    100%{
+      
+        opacity: 0;
+        
+    }
+    
+}
+
+@keyframes crossburgerthree {
+    100%{
+
+      transform: translateY(-21px) rotate(-45deg);
+      
+        
+    }
+    
+}
+
+/*NAV */
+
+
+    // CLASSE AJOUTER EN JS
+    .transition-menu{
+        @include mixins.displayFlex(column,flex-start,center,40px);
+        height: 30vh;
+        transition: ease-in 0.5s;
+    }
+    .menu-responsive{
+        display: flex;
+    }
+    .barre-une{
+        animation: crossburger 1s forwards;
+    }
+    .barre-deux{
+        animation: crossburgertwo 1s forwards;
+    }
+    .barre-trois{
+        animation: crossburgerthree 1s forwards;
+    }
+   
+    //
+
+
+.burger-menu{
+    display: none;
+    width: fit-content;
+    
+    @include mixins.breakpoint(900px){
+        display: flex;
+        @include mixins.displayFlex(column,center,flex-end,5px);
+        position:sticky;
+        top:0;
+
+    };
+
+    .barre{
+        height: 5px;
+        background-color: black;
+        width: 25px;
+    }
 }
 
 nav{
@@ -25,21 +110,32 @@ nav{
     width: 100%;
     padding: 20px;
     z-index: 1;
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 0, 0.37 );
+    transition: ease-out 0.5s;
+    
 
-  
-  
+    
+    
     ul{
         @include mixins.displayFlex(row,space-between,center,20px);
+
+            @include mixins.breakpoint(900px){
+                @include mixins.displayFlex(column,space-between,justify,20px);
+                display: none;
+                /*animation: burgerMenu 2s forwards;*/
+            };
         list-style: none;
         a{
             text-decoration: none;
             color: black;
         }
 
-       
+        
     }
 }
 
+
+/*IMAGE HEADER*/
 .header-backgroud{
 
     background-color: red;
@@ -55,9 +151,14 @@ nav{
             background: rgba(0, 0, 0, 0.5 );
             box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
             backdrop-filter: blur( 4px );
+            justify-content: center;
                 
             H1{
                 @include mixins.font($font-title,45px,white);
+                @include mixins.breakpoint(900px){
+                    text-align: center;
+                  }
+
             }
             p{
                 text-align: center;
@@ -71,8 +172,10 @@ nav{
         }
 }
 
+/*GALLERIE PHOTO*/
+
 .gallerie{
-    position: relative;
+    position:relative;
     display: grid;
     grid-template-columns:repeat(2,0.5fr);
     grid-template-rows: 0.5fr 0.5fr;
@@ -81,13 +184,17 @@ nav{
     @include mixins.breakpoint(900px){
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 1Fr 1Fr 1fr;
+        padding: 0px;
+        margin-top: 30px;
+        
     }
 
     .image{
        width: 635px;
        height: auto;
        @include mixins.breakpoint(900px){
-        width: 445px;
+        width: 345px;
+        justify-self: center;
     
         
     }
@@ -140,24 +247,28 @@ nav{
     }
 }
 
+/*PAGE CHRONOLOGIE*/
 #histoire-section{
     @include mixins.displayFlex(column,center,center,20px);
 
 
     .chronologie{
+      position: relative;
        display: grid;
-       grid-template-columns: 1fr 1fr;
-       grid-template-rows: 0.5fr 0.5fr 0.5fr;
+       grid-template-columns: 1fr 0.5fr;
+       grid-template-rows: 1fr 1fr 1fr;
        padding: 90px;
        background-color: whitesmoke;
        height: 500px;
        border-radius: 1.25rem;
        margin: 20px;
        gap : 0px 30px;
+       box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5 );
+    
        @include mixins.breakpoint(800px){
         grid-template-columns: 1fr;
         grid-template-rows: 0.5fr 0.5fr 0.5fr 0.5fr;
-        width: 50%;
+        width: fit-content;
         height: fit-content;
         padding: 20px;
        }
@@ -217,24 +328,11 @@ nav{
         height: 390px;
        }
     }
+  
 
     
 }
-
-.nav-section{
-    height: 10vh;
-    @include mixins.displayFlex(row,center,center,0px);
-    ul{
-        @include mixins.displayFlex(row,space-between,center,100px);
-        padding: 0px 50px 0px 50px;
-        list-style: none;
-        li{
-            @include mixins.font(Avenir,20px)
-        }
-        
-    }
-
-}
+/*PARTIE "ET MAINTENANT ?"*/
 
 #now-section{
 

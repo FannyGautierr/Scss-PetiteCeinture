@@ -8,6 +8,108 @@
   box-sizing: border-box;
 }
 
+/*ANIMATION*/
+@-webkit-keyframes burgerMenu {
+  0% {
+    transform: translateY(100px);
+  }
+  100% {
+    transform: translateY(-100px);
+  }
+}
+@keyframes burgerMenu {
+  0% {
+    transform: translateY(100px);
+  }
+  100% {
+    transform: translateY(-100px);
+  }
+}
+@-webkit-keyframes crossburger {
+  100% {
+    transform: rotateZ(45deg);
+  }
+}
+@keyframes crossburger {
+  100% {
+    transform: rotateZ(45deg);
+  }
+}
+@-webkit-keyframes crossburgertwo {
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes crossburgertwo {
+  100% {
+    opacity: 0;
+  }
+}
+@-webkit-keyframes crossburgerthree {
+  100% {
+    transform: translateY(-21px) rotate(-45deg);
+  }
+}
+@keyframes crossburgerthree {
+  100% {
+    transform: translateY(-21px) rotate(-45deg);
+  }
+}
+/*NAV */
+.transition-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 40px;
+  height: 30vh;
+  transition: ease-in 0.5s;
+}
+
+.menu-responsive {
+  display: flex;
+}
+
+.barre-une {
+  -webkit-animation: crossburger 1s forwards;
+          animation: crossburger 1s forwards;
+}
+
+.barre-deux {
+  -webkit-animation: crossburgertwo 1s forwards;
+          animation: crossburgertwo 1s forwards;
+}
+
+.barre-trois {
+  -webkit-animation: crossburgerthree 1s forwards;
+          animation: crossburgerthree 1s forwards;
+}
+
+.burger-menu {
+  display: none;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+@media screen and (max-width: 900px) {
+  .burger-menu {
+    display: flex;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 5px;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+  }
+}
+.burger-menu .barre {
+  height: 5px;
+  background-color: black;
+  width: 25px;
+}
+
 nav {
   position: -webkit-sticky;
   position: sticky;
@@ -25,6 +127,8 @@ nav {
   width: 100%;
   padding: 20px;
   z-index: 1;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 0, 0.37);
+  transition: ease-out 0.5s;
 }
 nav ul {
   display: flex;
@@ -34,11 +138,23 @@ nav ul {
   gap: 20px;
   list-style: none;
 }
+@media screen and (max-width: 900px) {
+  nav ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: justify;
+    gap: 20px;
+    display: none;
+    /*animation: burgerMenu 2s forwards;*/
+  }
+}
 nav ul a {
   text-decoration: none;
   color: black;
 }
 
+/*IMAGE HEADER*/
 .header-backgroud {
   background-color: red;
   background-image: url(img/LPC-4.jpeg);
@@ -59,11 +175,17 @@ nav ul a {
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   -webkit-backdrop-filter: blur(4px);
           backdrop-filter: blur(4px);
+  justify-content: center;
 }
 .header-backgroud .flou H1 {
   font-family: Grotesk;
   font-size: 45px;
   color: white;
+}
+@media screen and (max-width: 900px) {
+  .header-backgroud .flou H1 {
+    text-align: center;
+  }
 }
 .header-backgroud .flou p {
   text-align: center;
@@ -78,6 +200,7 @@ nav ul a {
   }
 }
 
+/*GALLERIE PHOTO*/
 .gallerie {
   position: relative;
   display: grid;
@@ -90,6 +213,8 @@ nav ul a {
   .gallerie {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1Fr 1Fr 1fr;
+    padding: 0px;
+    margin-top: 30px;
   }
 }
 .gallerie .image {
@@ -99,7 +224,8 @@ nav ul a {
 }
 @media screen and (max-width: 900px) {
   .gallerie .image {
-    width: 445px;
+    width: 345px;
+    justify-self: center;
   }
 }
 .gallerie .image-1 {
@@ -149,6 +275,7 @@ nav ul a {
   }
 }
 
+/*PAGE CHRONOLOGIE*/
 #histoire-section {
   display: flex;
   flex-direction: column;
@@ -157,21 +284,25 @@ nav ul a {
   gap: 20px;
 }
 #histoire-section .chronologie {
+  position: relative;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 0.5fr 0.5fr 0.5fr;
+  grid-template-columns: 1fr 0.5fr;
+  grid-template-rows: 1fr 1fr 1fr;
   padding: 90px;
   background-color: whitesmoke;
   height: 500px;
   border-radius: 1.25rem;
   margin: 20px;
   gap: 0px 30px;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
 }
 @media screen and (max-width: 800px) {
   #histoire-section .chronologie {
     grid-template-columns: 1fr;
     grid-template-rows: 0.5fr 0.5fr 0.5fr 0.5fr;
-    width: 50%;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
     height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
@@ -246,29 +377,7 @@ nav ul a {
   height: 390px;
 }
 
-.nav-section {
-  height: 10vh;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 0px;
-}
-.nav-section ul {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  gap: 100px;
-  padding: 0px 50px 0px 50px;
-  list-style: none;
-}
-.nav-section ul li {
-  font-family: Avenir;
-  font-size: 20px;
-  color: black;
-}
-
+/*PARTIE "ET MAINTENANT ?"*/
 #now-section {
   display: flex;
   flex-direction: column;
